@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Interativa - Produtos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.4/lottie.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #000428, #004e92);
+            color: white;
+            padding: 50px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Botão Parallax */
+        .btn-parallax-container {
+            display: inline-block;
+            perspective: 500px;
+        }
+        .btn-parallax {
+            background: #0074cc;
+            color: white;
+            border-radius: 50px;
+            border: 2px solid #fff;
+            transition: transform 0.2s ease-out, box-shadow 0.3s, background 0.3s;
+            padding: 15px 30px;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        .btn-parallax:hover {
+            background: #3399ff;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Botão Ripple Effect (Efeito mais lento) */
+        .btn-ripple:hover {
+
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 60%;
+            opacity: 1;
+            transition: transform 0.5s, opacity 4s;
+ 
+        }
+
+        .btn-ripple {
+            background: #ff4081;
+            color: white;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-ripple::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 60%;
+            transform: scale(0);
+            opacity: 1;
+            transition: transform 0.5s, opacity 4s;
+        }
+        .btn-ripple:active::after {
+            transform: scale(5);
+            opacity: 0;
+        }
+
+        /* Botão Neon */
+        .btn-neon {
+            background: transparent;
+            border: 2px solid #0ff;
+            color: #0ff;
+            border-radius: 50px;
+            box-shadow: 0 0 10px #0ff;
+        }
+        .btn-neon:hover {
+            box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+            background: #0ff;
+            color: black;
+        }
+
+        /* Botão Ícone Animado */
+        .btn-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #ff4444;
+            color: white;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+        .btn-icon:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* Botão Glassmorphism */
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+        }
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .btn-glass {
+                grid-column: span 2;
+                justify-self: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 data-aos="fade-up">Escolha um Produto</h1>
+    <div class="container">
+        <div class="btn-parallax-container">
+            <button class="btn-parallax">Produto 1</button>
+        </div>
+        <button class="btn-ripple">Produto 2</button>
+        <button class="btn-neon">Produto 3</button>
+        <button class="btn-icon"><i class="fas fa-star"></i></button>
+        <button class="btn-glass">Produto 5</button>
+    </div>
+
+    <script>
+        document.querySelector('.btn-parallax-container').addEventListener('mousemove', function (e) {
+            let x = (e.offsetX - this.clientWidth / 2) / 10;
+            let y = (e.offsetY - this.clientHeight / 2) / 10;
+            this.querySelector('.btn-parallax').style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        document.querySelector('.btn-parallax-container').addEventListener('mouseleave', function () {
+            this.querySelector('.btn-parallax').style.transform = 'translate(0, 0)';
+        });
+    </script>
+</body>
+</html>
+

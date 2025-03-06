@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +13,10 @@
             background: linear-gradient(to right, #008000, #800080);
             color: white;
             text-align: center;
-            overflow: hidden; /* Evita barras de rolagem */
+            overflow: hidden;
+            /* Evita barras de rolagem */
         }
-        
+
         /* Container do cabeçalho para alinhar logotipo e menu */
         .header-container {
             display: flex;
@@ -28,39 +30,45 @@
         .logo {
             width: 100px;
         }
-        
+
         /* Ajuste do carrossel */
         .carousel {
             width: 100%;
             height: 40vh;
         }
+
         .carousel-item img {
             width: 100%;
             height: 40vh;
-            object-fit: contain; /* Garante que a imagem seja exibida por inteiro sem cortes */
-            background-color: black; /* Adiciona fundo para imagens menores */
+            object-fit: contain;
+            /* Garante que a imagem seja exibida por inteiro sem cortes */
+            background-color: black;
+            /* Adiciona fundo para imagens menores */
         }
 
         /* Efeito de transição suave entre imagens */
         .carousel-fade .carousel-item {
             transition: opacity 1s ease-in-out;
         }
-        
+
         /* Mensagem "Paz na Terra" */
         .mensagem {
-            font-size: 24px; /* Aumentado o tamanho da fonte */
-            font-weight: bold; /* Deixa o texto mais destacado */
+            font-size: 24px;
+            /* Aumentado o tamanho da fonte */
+            font-weight: bold;
+            /* Deixa o texto mais destacado */
             color: darkgreen;
             margin: 20px 0;
         }
     </style>
 </head>
+
 <body>
     <!-- Cabeçalho contendo logotipo e menu -->
     <div class="header-container">
         <!-- Logotipo -->
         <img src="img_previa/logo.jpg" alt="Logotipo" class="logo">
-        
+
         <!-- Menu de navegação -->
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
@@ -78,12 +86,12 @@
             </div>
         </nav>
     </div>
-    
+
     <!-- Primeiro Carrossel -->
     <div id="carousel1" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
         <div class="carousel-inner">
-            <div class="carousel-item active"><img src="img_previa/pe01.jpg" alt="Imagem 1"></div>
-            <div class="carousel-item"><img src="img_previa/pe03.jpg" alt="Imagem 3"></div>
+            <div class="carousel-item active"><img src="img_previa/pe1.jpg" alt="Imagem 1"></div>
+            <div class="carousel-item"><img src="img_previa/pe3.jpg" alt="Imagem 3"></div>
             <div class="carousel-item"><img src="img_previa/pe5.jpg" alt="Imagem 5"></div>
             <div class="carousel-item"><img src="img_previa/pe7.jpg" alt="Imagem 7"></div>
             <div class="carousel-item"><img src="img_previa/pe9.jpg" alt="Imagem 9"></div>
@@ -95,15 +103,15 @@
             <span class="carousel-control-next-icon"></span>
         </button>
     </div>
-    
+
     <!-- Mensagem -->
     <p class="mensagem">Paz na Terra</p>
-    
+
     <!-- Segundo Carrossel -->
     <div id="carousel2" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
         <div class="carousel-inner">
             <div class="carousel-item active"><img src="img_previa/pe0.jpg" alt="Imagem 0"></div>
-            <div class="carousel-item"><img src="img_previa/pe02.jpg" alt="Imagem 2"></div>
+            <div class="carousel-item"><img src="img_previa/pe2.jpg" alt="Imagem 2"></div>
             <div class="carousel-item"><img src="img_previa/pe4.jpg" alt="Imagem 4"></div>
             <div class="carousel-item"><img src="img_previa/pe6.jpg" alt="Imagem 6"></div>
             <div class="carousel-item"><img src="img_previa/pe8.jpg" alt="Imagem 8"></div>
@@ -117,12 +125,12 @@
             <span class="carousel-control-next-icon"></span>
         </button>
     </div>
-    
+
     <!-- Importação do Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Garante que os carrosséis continuem funcionando corretamente
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             let carousels = document.querySelectorAll(".carousel");
             carousels.forEach(carousel => {
                 new bootstrap.Carousel(carousel, {
@@ -133,4 +141,5 @@
         });
     </script>
 </body>
+
 </html>

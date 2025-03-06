@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botões Animados</title>
+    <!-- Importando Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Importando CSS personalizado -->
+    <style>
+        /* Definindo o fundo da página com um degradê roxo e verde escuro */
+        body {
+            background: linear-gradient(135deg, #2d004d, #004d26);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        /* Estilizando os botões com diferentes formas e animações */
+        .btn-custom {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Animações individuais para cada botão */
+        .btn-1 {
+            background-color: #ff5733;
+            color: white;
+            border-radius: 50px;
+        }
+        .btn-1:hover {
+            transform: scale(1.2);
+        }
+
+        .btn-2 {
+            background-color: #33ff57;
+            color: white;
+            border-radius: 5px;
+        }
+        .btn-2:hover {
+            transform: rotate(10deg);
+        }
+
+        .btn-3 {
+            background-color: #3357ff;
+            color: white;
+            border-radius: 0;
+        }
+        .btn-3:hover {
+            transform: translateY(-10px);
+        }
+
+        .btn-4 {
+            background-color: #ff33a6;
+            color: white;
+            border-radius: 20px;
+        }
+        .btn-4:hover {
+            transform: translateX(10px);
+        }
+
+        .btn-5 {
+            background-color: #a633ff;
+            color: white;
+            border-radius: 10px;
+        }
+        .btn-5:hover {
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-6 {
+            background-color: #33fff5;
+            color: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+        }
+        .btn-6:hover {
+            transform: scale(0.8);
+        }
+
+        .btn-7 {
+            background-color: #f5ff33;
+            color: black;
+            border-radius: 5px;
+        }
+        .btn-7:hover {
+            transform: skewX(15deg);
+        }
+
+        .btn-8 {
+            background-color: #ff8c33;
+            color: white;
+            border-radius: 30px;
+        }
+        .btn-8:hover {
+            transform: skewY(15deg);
+        }
+
+        .btn-9 {
+            background-color: #8cff33;
+            color: black;
+            border-radius: 25px;
+        }
+        .btn-9:hover {
+            opacity: 0.5;
+        }
+
+        .btn-10 {
+            background-color: #ff3333;
+            color: white;
+            border-radius: 5px;
+        }
+        .btn-10:hover {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        /* Estilização da mensagem */
+        #mensagem {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Botões Animados</h1>
+    <div>
+        <!-- Criando 10 botões com diferentes estilos e animações -->
+        <button class="btn-custom btn-1" onclick="exibirMensagem('Você clicou no Botão 1')">Botão 1</button>
+        <button class="btn-custom btn-2" onclick="exibirMensagem('Você clicou no Botão 2')">Botão 2</button>
+        <button class="btn-custom btn-3" onclick="exibirMensagem('Você clicou no Botão 3')">Botão 3</button>
+        <button class="btn-custom btn-4" onclick="exibirMensagem('Você clicou no Botão 4')">Botão 4</button>
+        <button class="btn-custom btn-5" onclick="exibirMensagem('Você clicou no Botão 5')">Botão 5</button>
+        <button class="btn-custom btn-6" onclick="exibirMensagem('Você clicou no Botão 6')">Botão 6</button>
+        <button class="btn-custom btn-7" onclick="exibirMensagem('Você clicou no Botão 7')">Botão 7</button>
+        <button class="btn-custom btn-8" onclick="exibirMensagem('Você clicou no Botão 8')">Botão 8</button>
+        <button class="btn-custom btn-9" onclick="exibirMensagem('Você clicou no Botão 9')">Botão 9</button>
+        <button class="btn-custom btn-10" onclick="exibirMensagem('Você clicou no Botão 10')">Botão 10</button>
+    </div>
+    
+    <!-- Área onde a mensagem será exibida -->
+    <div id="mensagem"></div>
+
+    <!-- Script JavaScript para exibir e substituir mensagens -->
+    <script>
+        function exibirMensagem(mensagem) {
+            document.getElementById("mensagem").innerText = mensagem;
+        }
+    </script>
+</body>
+</html>
