@@ -7,28 +7,54 @@
     <title>Beatriz Goes V2</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Impede rolagem horizontal */
+            height: 100%; /* Assegura que o corpo ocupe toda a altura da tela */
+        }
+
         body {
             background: linear-gradient(to right, #008000, #800080);
             color: white;
             text-align: center;
-            overflow: hidden;
+            overflow-y: hidden; /* Impede rolagem vertical extra */
+        }
+
+        .logo {
+            width: auto;
+            height: 48px;
+            max-height: 64px;
+            margin-right: 20px; /* Espaço entre o logo e o texto */
         }
 
         .header-container {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center; /* Centraliza os itens do cabeçalho */
             padding: 10px 20px;
             background-color: #343a40;
+            position: fixed;
+            width: 100%; /* Ocupa toda a largura */
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
 
-        .logo {
-            width: 100px;
+        .brand-name {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 300;
+            color: #FFD700; /* Dourado */
+            background: transparent;
+            text-transform: uppercase;
+            margin: 0;
         }
 
-        .carousel {
-            width: 100%;
-            height: 40vh;
+        @media (max-width: 768px) {
+            .brand-name {
+                font-size: 20px;
+            }
         }
 
         .carousel-item img {
@@ -39,28 +65,36 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .mensagem {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 48px;
-            font-weight: bold;
-            color: darkgreen;
-            margin: 25px 0;
+        .carousel {
+            margin-top: 80px; /* Espaçamento após o header fixo */
         }
 
-        /* Estilos para os botões animados */
+        .background-container {
+            background: url('img_previa/imagem.jpg') no-repeat center center fixed;
+            background-size: cover;
+            width: 100%;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px; /* Adiciona o padding para o conteúdo não se sobrepor ao header */
+        }
+
         .botao-container {
             display: flex;
-            justify-content: space-evenly;
-            gap: 15px;
-            padding: 15px;
-            flex-wrap: wrap; /* Permite que os botões se ajustem ao espaço disponível */
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+            padding: 20px 0;
         }
 
         .botao-redondo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background-color: #ff5733;
+            background-color: #193a02;
             color: white;
             font-size: 16px;
             font-weight: bold;
@@ -69,7 +103,6 @@
             justify-content: center;
             cursor: pointer;
             transition: transform 0.3s ease, background-color 0.3s;
-            max-width: 100%;
         }
 
         .botao-redondo:hover {
@@ -77,15 +110,10 @@
             transform: scale(1.1);
         }
 
-        /* Ajuste para telas menores */
         @media (max-width: 768px) {
-            .botao-container {
-                justify-content: space-around; /* Ajusta a distribuição */
-            }
-
             .botao-redondo {
-                width: 90px; /* Ajusta a largura dos botões para que todos caibam */
-                height: 90px; /* Ajusta a altura */
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
@@ -94,6 +122,7 @@
 <body>
     <div class="header-container">
         <img src="img_previa/logo.jpg" alt="Logotipo" class="logo">
+        <div class="brand-name">Beatriz Goes</div>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -101,7 +130,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link" href="teste.html">Exemplos Botões</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Nossa História</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
@@ -112,19 +140,12 @@
         </nav>
     </div>
 
-    <div id="carousel1" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <div id="carousel1" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item"><img src="img_previa/pe1.jpg" alt="Imagem 1"></div>
+            <div class="carousel-item active"><img src="img_previa/pe1.jpg" alt="Imagem 1"></div>
+            <div class="carousel-item"><img src="img_previa/pe2.jpg" alt="Imagem 2"></div>
             <div class="carousel-item"><img src="img_previa/pe3.jpg" alt="Imagem 3"></div>
-            <div class="carousel-item"><img src="img_previa/pe5.jpg" alt="Imagem 5"></div>
-            <div class="carousel-item"><img src="img_previa/pe7.jpg" alt="Imagem 7"></div>
-            <div class="carousel-item"><img src="img_previa/pe9.jpg" alt="Imagem 9"></div>
-            <div class="carousel-item active"><img src="img_previa/pe2.jpg" alt="Imagem 2"></div>
             <div class="carousel-item"><img src="img_previa/pe4.jpg" alt="Imagem 4"></div>
-            <div class="carousel-item"><img src="img_previa/pe6.jpg" alt="Imagem 6"></div>
-            <div class="carousel-item"><img src="img_previa/pe8.jpg" alt="Imagem 8"></div>
-            <div class="carousel-item"><img src="img_previa/pe10.jpg" alt="Imagem 10"></div>
-            <div class="carousel-item"><img src="img_previa/pe0.jpg" alt="Imagem 0"></div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -134,28 +155,16 @@
         </button>
     </div>
 
-    <p class="mensagem">Paz na Terra</p>
-
-    <!-- Botões redondos e animados -->
-    <div class="botao-container">
-        <div class="botao-redondo">Produto 1</div>
-        <div class="botao-redondo">Produto 2</div>
-        <div class="botao-redondo">Produto 3</div>
-        <div class="botao-redondo">Produto 4</div>
+    <div class="background-container">
+        <div class="botao-container">
+            <div class="botao-redondo">Produto 1</div>
+            <div class="botao-redondo">Produto 2</div>
+            <div class="botao-redondo">Produto 3</div>
+            <div class="botao-redondo">Produto 4</div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let carousels = document.querySelectorAll(".carousel");
-            carousels.forEach(carousel => {
-                new bootstrap.Carousel(carousel, {
-                    interval: 5000,
-                    ride: 'carousel'
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
