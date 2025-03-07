@@ -4,20 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatriz Goes V1-200</title>
-    <!-- Importando o Bootstrap para facilitar o design responsivo -->
+    <title>Beatriz Goes V2</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
-        /* Definição do fundo com nuances de verde e roxo */
         body {
             background: linear-gradient(to right, #008000, #800080);
             color: white;
             text-align: center;
             overflow: hidden;
-            /* Evita barras de rolagem */
         }
 
-        /* Container do cabeçalho para alinhar logotipo e menu */
         .header-container {
             display: flex;
             align-items: center;
@@ -26,12 +22,10 @@
             background-color: #343a40;
         }
 
-        /* Ajuste do logotipo */
         .logo {
             width: 100px;
         }
 
-        /* Ajuste do carrossel */
         .carousel {
             width: 100%;
             height: 40vh;
@@ -39,37 +33,67 @@
 
         .carousel-item img {
             width: 100%;
-            height: 40vh;
-            object-fit: contain;
-            /* Garante que a imagem seja exibida por inteiro sem cortes */
+            height: 45vh;
+            object-fit: cover;
             background-color: black;
-            /* Adiciona fundo para imagens menores */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Efeito de transição suave entre imagens */
-        .carousel-fade .carousel-item {
-            transition: opacity 1s ease-in-out;
-        }
-
-        /* Mensagem "Paz na Terra" */
         .mensagem {
-            font-size: 24px;
-            /* Aumentado o tamanho da fonte */
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 48px;
             font-weight: bold;
-            /* Deixa o texto mais destacado */
             color: darkgreen;
-            margin: 20px 0;
+            margin: 25px 0;
+        }
+
+        /* Estilos para os botões animados */
+        .botao-container {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 15px;
+            padding: 15px;
+            flex-wrap: wrap; /* Permite que os botões se ajustem ao espaço disponível */
+        }
+
+        .botao-redondo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #ff5733;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s;
+            max-width: 100%;
+        }
+
+        .botao-redondo:hover {
+            background-color: #ff8c66;
+            transform: scale(1.1);
+        }
+
+        /* Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .botao-container {
+                justify-content: space-around; /* Ajusta a distribuição */
+            }
+
+            .botao-redondo {
+                width: 90px; /* Ajusta a largura dos botões para que todos caibam */
+                height: 90px; /* Ajusta a altura */
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Cabeçalho contendo logotipo e menu -->
     <div class="header-container">
-        <!-- Logotipo -->
         <img src="img_previa/logo.jpg" alt="Logotipo" class="logo">
-
-        <!-- Menu de navegação -->
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -77,6 +101,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="teste.html">Exemplos Botões</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Nossa História</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
@@ -87,14 +112,19 @@
         </nav>
     </div>
 
-    <!-- Primeiro Carrossel -->
     <div id="carousel1" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
         <div class="carousel-inner">
-            <div class="carousel-item active"><img src="img_previa/pe1.jpg" alt="Imagem 1"></div>
+            <div class="carousel-item"><img src="img_previa/pe1.jpg" alt="Imagem 1"></div>
             <div class="carousel-item"><img src="img_previa/pe3.jpg" alt="Imagem 3"></div>
             <div class="carousel-item"><img src="img_previa/pe5.jpg" alt="Imagem 5"></div>
             <div class="carousel-item"><img src="img_previa/pe7.jpg" alt="Imagem 7"></div>
             <div class="carousel-item"><img src="img_previa/pe9.jpg" alt="Imagem 9"></div>
+            <div class="carousel-item active"><img src="img_previa/pe2.jpg" alt="Imagem 2"></div>
+            <div class="carousel-item"><img src="img_previa/pe4.jpg" alt="Imagem 4"></div>
+            <div class="carousel-item"><img src="img_previa/pe6.jpg" alt="Imagem 6"></div>
+            <div class="carousel-item"><img src="img_previa/pe8.jpg" alt="Imagem 8"></div>
+            <div class="carousel-item"><img src="img_previa/pe10.jpg" alt="Imagem 10"></div>
+            <div class="carousel-item"><img src="img_previa/pe0.jpg" alt="Imagem 0"></div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -104,32 +134,18 @@
         </button>
     </div>
 
-    <!-- Mensagem -->
     <p class="mensagem">Paz na Terra</p>
 
-    <!-- Segundo Carrossel -->
-    <div id="carousel2" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-        <div class="carousel-inner">
-            <div class="carousel-item active"><img src="img_previa/pe0.jpg" alt="Imagem 0"></div>
-            <div class="carousel-item"><img src="img_previa/pe2.jpg" alt="Imagem 2"></div>
-            <div class="carousel-item"><img src="img_previa/pe4.jpg" alt="Imagem 4"></div>
-            <div class="carousel-item"><img src="img_previa/pe6.jpg" alt="Imagem 6"></div>
-            <div class="carousel-item"><img src="img_previa/pe8.jpg" alt="Imagem 8"></div>
-            <div class="carousel-item"><img src="img_previa/pe10.jpg" alt="Imagem 10"></div>
-
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
+    <!-- Botões redondos e animados -->
+    <div class="botao-container">
+        <div class="botao-redondo">Produto 1</div>
+        <div class="botao-redondo">Produto 2</div>
+        <div class="botao-redondo">Produto 3</div>
+        <div class="botao-redondo">Produto 4</div>
     </div>
 
-    <!-- Importação do Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Garante que os carrosséis continuem funcionando corretamente
         document.addEventListener("DOMContentLoaded", function () {
             let carousels = document.querySelectorAll(".carousel");
             carousels.forEach(carousel => {
